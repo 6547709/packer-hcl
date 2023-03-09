@@ -1,0 +1,42 @@
+#Source VM template
+TEMP_VM_NAME="Rhel84-GUI-100G-latest"
+
+#Guest OS customization name in vCenter
+SPEC="linux"
+
+#target storage
+DS="LUN0-10T"
+
+#target cluster
+CLUSTER_NAME="Cluster"
+
+#target resource pool
+RESOURCE_POOL="govc"
+
+#target folder(vm)
+FOLDER="govc"
+
+#Define multiple virtual machines as an array and json
+VMS='[
+  {
+    "vm_name": "cc-test-01",
+    "vm_cpu": "4",
+    "vm_mem": "8192",
+    "vm_ip": "192.168.100.51",
+    "vm_mask": "255.255.255.0",
+    "vm_gateway": "192.168.100.254",
+    "vm_dns": "192.168.100.10",
+    "vm_network": "vlan4043"
+  },
+  {
+    "vm_name": "cc-test-02",
+    "vm_cpu": "4",
+    "vm_mem": "8192",
+    "vm_ip": "192.168.100.52",
+    "vm_mask": "255.255.255.0",
+    "vm_gateway": "192.168.100.254",
+    "vm_dns": "192.168.100.10",
+    "vm_network": "vlan4043"
+  }
+]'
+

@@ -1,0 +1,6 @@
+# vCenter info
+GOVC_URL=mgmt-vc.corp.local
+GOVC_USER_NAME=Administrator@vsphere.local
+GOVC_PASSWORD=VMware1!
+GOVC_INSECURE=true
+
