@@ -66,8 +66,8 @@ build {
   sources = ["source.vsphere-iso.rhel8"]
   provisioner "shell" {
     inline = [
-      "echo 'exclude=kernel* redhat-release*' >> /etc/yum.conf",
-      "echo 'exclude=kernel* redhat-release*' >> /etc/dnf/dnf.conf",
+      "echo 'exclude=vdo* kmod-kvdo* kernel* redhat-release*' >> /etc/yum.conf",
+      "echo 'exclude=vdo* kmod-kvdo* kernel* redhat-release*' >> /etc/dnf/dnf.conf",
       "dnf remove cups -y",
       "dnf update -y",
       "rm -rf /root/*.cfg",
