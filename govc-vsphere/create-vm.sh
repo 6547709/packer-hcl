@@ -28,11 +28,11 @@ fi
 if ! [ `command -v govc` ];then
    echo "govc is not installed,please installit."
 fi
-
+VM_NUM=$(echo $VMS |jq '.|length')
 if [ -z $3 ]; then
   echo "Start deploying the target virtual machine in $GOVC_URL"
-  for((i=0;i<=${#VMS[@]};i++)); do
-  {  NEW_VM_NAME=$(echo $VMS |jq -r .[$i].vm_name)
+  for((i=0;i<$VM_NUM;i++)); do
+  { NEW_VM_NAME=$(echo $VMS |jq -r .[$i].vm_name)
     CPU=$(echo $VMS |jq -r .[$i].vm_cpu)
     MEM=$(echo $VMS |jq -r .[$i].vm_mem)
     IP=$(echo $VMS |jq -r .[$i].vm_ip)
@@ -48,7 +48,7 @@ if [ -z $3 ]; then
 else
   if [ $3 == 'destroy' ]; then
     echo "Start destroy the target virtual machine in $GOVC_URL"
-    for((i=0;i<=${#VMS[@]};i++)); do
+    for((i=0;i<$VM_NUM;i++)); do
       {  NEW_VM_NAME=$(echo $VMS |jq -r .[$i].vm_name)
      govc vm.destroy "$NEW_VM_NAME"
     }&

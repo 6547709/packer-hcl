@@ -7,8 +7,8 @@ SPEC="linux"
 #target storage
 DS="LUN0-10T"
 
-#target cluster
-CLUSTER_NAME="Cluster"
+#target cluster(if set CLUSTER_NAME,RESOURCE_POOL don't use)
+#CLUSTER_NAME="Cluster"
 
 #target resource pool
 RESOURCE_POOL="govc"
